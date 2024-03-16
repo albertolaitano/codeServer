@@ -3,6 +3,18 @@ class ProductManager {
 
   create(data) {
     try {
+      if (
+        !data.title ||
+        !data.photo ||
+        !data.category ||
+        !data.price ||
+        !data.stock
+      ) {
+        throw new Error(
+          "Todos los campos (title, photo, category, price, stock) son obligatorios"
+        );
+      }
+
       const product = {
         id:
           ProductManager.#products.length === 0
