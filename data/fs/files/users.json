@@ -1,55 +1,27 @@
 [
   {
-    "id": "30b6bf88d06cb74509e53fdf",
+    "id": "26069fe031ec7ef6ec060037",
     "photo": "photo1.png",
     "email": "toto@gmail.com",
     "password": "toto1234",
     "role": "Alumno"
   },
   {
-    "id": "4eb918a9f08fc86340d9fe8d",
+    "id": "010e1dd787529f5705e34832",
     "photo": "photo2.png",
     "email": "pepe@gmail.com",
     "password": "pepe1234",
     "role": "Alumno"
   },
   {
-    "id": "2b11c2710e0dbfdfeda97c76",
+    "id": "a055158062b4ecd4077862be",
     "photo": "https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png",
     "email": "jose@gmail.com",
     "password": "jose1234",
     "role": "Alumno"
   },
   {
-    "id": "1e76a9b58281c27ee04b9c0c",
-    "photo": "photo4.png",
-    "email": "raul@gmail.com",
-    "password": "raul1234",
-    "role": "Alumno"
-  },
-  {
-    "id": "4c3a59eb23911b7b0a439fb8",
-    "photo": "photo1.png",
-    "email": "toto@gmail.com",
-    "password": "toto1234",
-    "role": "Alumno"
-  },
-  {
-    "id": "af2017543dfee9dd12792c9c",
-    "photo": "photo2.png",
-    "email": "pepe@gmail.com",
-    "password": "pepe1234",
-    "role": "Alumno"
-  },
-  {
-    "id": "5869fea333c59d39ea1be711",
-    "photo": "https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png",
-    "email": "jose@gmail.com",
-    "password": "jose1234",
-    "role": "Alumno"
-  },
-  {
-    "id": "14c68a86af810eba34d6d636",
+    "id": "6b7d333334349e4a9a56dcdc",
     "photo": "photo4.png",
     "email": "raul@gmail.com",
     "password": "raul1234",
