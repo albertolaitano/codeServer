@@ -37,6 +37,7 @@ class UserManager {
         console.log("Usuario creado");
         users = JSON.stringify(users, null, 2);
         await fs.promises.writeFile(this.path, users);
+        return user;
       }
     } catch (error) {
       console.log("Error al cargar el usuario: ", error);
@@ -51,6 +52,7 @@ class UserManager {
       if (users.length === 0) {
         throw new Error("No hay usuarios");
       } else {
+        console.log("Todos los usuarios: ", users);
         return users;
       }
     } catch (error) {
@@ -67,6 +69,7 @@ class UserManager {
       if (!user) {
         throw new Error("Usuario no encontrado");
       } else {
+        console.log("Usuario encontrado: ", user);
         return user;
       }
     } catch (error) {
@@ -78,54 +81,65 @@ class UserManager {
     try {
       let users = await fs.promises.readFile(this.path, "utf-8");
       users = JSON.parse(users);
-      const index = users.findIndex((user) => user.id === id);
-      if (index === -1) {
-        throw new Error("Usuario no encontrado con el ID especificado");
+      let user = users.find((each) => each.id === id);
+      if (!user) {
+        throw new Error("NO ENCONTRADO");
+      } else {
+        let filtered = users.filter((each) => each.id !== id);
+        filtered = JSON.stringify(filtered, null, 2);
+        await fs.promises.writeFile(this.path, filtered);
+        console.log("Usuario eliminado: ", user);
+        return user;
       }
-
-      const deletedUser = users.splice(index, 1)[0];
-      await fs.promises.writeFile(this.path, JSON.stringify(users, null, 2));
-      console.log(`Usuario con el ID ${id} eliminado`);
-      return deletedUser;
     } catch (error) {
-      console.error("Error al eliminar el usuario:", error.message);
-      throw error;
+      console.log("Error al eliminar el usuario:", error.message);
     }
   }
 }
 
 async function test() {
-  const gestorDeUsuarios = new UserManager();
-  await gestorDeUsuarios.create({
-    photo: "photo1.png",
-    email: "toto@gmail.com",
-    password: "toto1234",
-    role: "Alumno",
-  });
+  try {
+    const gestorDeUsuarios = new UserManager();
+    await gestorDeUsuarios.create({
+      photo: "photo1.png",
+      email: "toto@gmail.com",
+      password: "toto1234",
+      role: "Alumno",
+    });
 
-  await gestorDeUsuarios.create({
-    photo: "photo2.png",
-    email: "pepe@gmail.com",
-    password: "pepe1234",
-    role: "Alumno",
-  });
+    await gestorDeUsuarios.create({
+      photo: "photo2.png",
+      email: "pepe@gmail.com",
+      password: "pepe1234",
+      role: "Alumno",
+    });
 
-  await gestorDeUsuarios.create({
-    email: "jose@gmail.com",
-    password: "jose1234",
-    role: "Alumno",
-  });
+    await gestorDeUsuarios.create({
+      email: "jose@gmail.com",
+      password: "jose1234",
+      role: "Alumno",
+    });
 
-  await gestorDeUsuarios.create({
-    photo: "photo4.png",
-    email: "raul@gmail.com",
-    password: "raul1234",
-    role: "Alumno",
-  });
+    await gestorDeUsuarios.create({
+      photo: "photo4.png",
+      email: "raul@gmail.com",
+      password: "raul1234",
+      role: "Alumno",
+    });
 
-  console.log(await gestorDeUsuarios.read());
-  //console.log(await gestorDeUsuarios.readOne("1"));
-  //console.log(await gestorDeUsuarios.destroy("3"));
+    await gestorDeUsuarios.read();
+    const tester = await gestorDeUsuarios.create({
+      photo: "photo.5.png",
+      email: "pedro@gmail.com",
+      password: "pedro1234",
+      role: "Alumno",
+    });
+    console.log("Usuario nuevo creado ", tester);
+    await gestorDeUsuarios.readOne(tester.id);
+    await gestorDeUsuarios.destroy(tester.id);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 test();

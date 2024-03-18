@@ -78,5 +78,17 @@ gestorDeUsuarios.create({
   password: "pepe1234",
   role: "Alumno",
 });
+gestorDeUsuarios.create({
+  email: "jose@gmail.com",
+  password: "jose1234",
+  role: "Alumno",
+});
+
+gestorDeUsuarios.create({
+  photo: "photo4.png",
+  email: "raul@gmail.com",
+  password: "raul1234",
+  role: "Alumno",
+});
 
 console.log(gestorDeUsuarios.read());
