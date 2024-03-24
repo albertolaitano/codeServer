@@ -1,0 +1,30 @@
+[
+  {
+    "id": "26069fe031ec7ef6ec060037",
+    "photo": "photo1.png",
+    "email": "toto@gmail.com",
+    "password": "toto1234",
+    "role": "Alumno"
+  },
+  {
+    "id": "010e1dd787529f5705e34832",
+    "photo": "photo2.png",
+    "email": "pepe@gmail.com",
+    "password": "pepe1234",
+    "role": "Alumno"
+  },
+  {
+    "id": "a055158062b4ecd4077862be",
+    "photo": "https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png",
+    "email": "jose@gmail.com",
+    "password": "jose1234",
+    "role": "Alumno"
+  },
+  {
+    "id": "6b7d333334349e4a9a56dcdc",
+    "photo": "photo4.png",
+    "email": "raul@gmail.com",
+    "password": "raul1234",
+    "role": "Alumno"
+  }
+]

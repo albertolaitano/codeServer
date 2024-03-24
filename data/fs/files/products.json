@@ -1,0 +1,162 @@
+[
+  {
+    "id": "df5612bd93410b1d4c2ea146",
+    "title": "remera",
+    "photo": "remera.png",
+    "category": "ropa",
+    "price": 80,
+    "stock": 1000
+  },
+  {
+    "id": "0d15bce9f413c52e426e3270",
+    "title": "pantalón",
+    "photo": "pantalon.png",
+    "category": "ropa",
+    "price": 120,
+    "stock": 800
+  },
+  {
+    "id": "a5c066a7efa1866fe7c9cb6e",
+    "title": "zapatos",
+    "photo": "zapatos.png",
+    "category": "calzado",
+    "price": 150,
+    "stock": 500
+  },
+  {
+    "id": "18a365b72a12ff0b7c0c6c7a",
+    "title": "gorra",
+    "photo": "gorra.png",
+    "category": "accesorios",
+    "price": 20,
+    "stock": 200
+  },
+  {
+    "id": "fbfafac8e4c324e622ef0726",
+    "title": "reloj",
+    "photo": "reloj.png",
+    "category": "accesorios",
+    "price": 100,
+    "stock": 300
+  },
+  {
+    "id": "3b76d46fe5278e6ab69ab926",
+    "title": "buzo",
+    "photo": "buzo.png",
+    "category": "ropa",
+    "price": 100,
+    "stock": 300
+  },
+  {
+    "id": "81ebdd3560e5e9de6c81d9fa",
+    "title": "botines",
+    "photo": "botines.png",
+    "category": "calzado",
+    "price": 100,
+    "stock": 300
+  },
+  {
+    "id": "b11e0dce0b7e24493fbeddf4",
+    "title": "borcegos",
+    "photo": "borcegos.png",
+    "category": "calzado",
+    "price": 100,
+    "stock": 300
+  },
+  {
+    "id": "30775c87dd953443e10c5414",
+    "title": "camperon",
+    "photo": "camperon.png",
+    "category": "ropa",
+    "price": 100,
+    "stock": 300
+  },
+  {
+    "id": "ee1b723c64b1d4f6c68952b7",
+    "title": "gorro",
+    "photo": "gorro.png",
+    "category": "accesorios",
+    "price": 100,
+    "stock": 300
+  },
+  {
+    "id": "4df838b847b0b49152a09b3c",
+    "title": "remera",
+    "photo": "remera.png",
+    "category": "ropa",
+    "price": 80,
+    "stock": 1000
+  },
+  {
+    "id": "885492180578236c2045a6b2",
+    "title": "pantalón",
+    "photo": "pantalon.png",
+    "category": "ropa",
+    "price": 120,
+    "stock": 800
+  },
+  {
+    "id": "0cc577b2386f80547ec3d4a8",
+    "title": "zapatos",
+    "photo": "zapatos.png",
+    "category": "calzado",
+    "price": 150,
+    "stock": 500
+  },
+  {
+    "id": "7ff9bbd4588ba7e4fb3cc0d2",
+    "title": "gorra",
+    "photo": "gorra.png",
+    "category": "accesorios",
+    "price": 20,
+    "stock": 200
+  },
+  {
+    "id": "8e2be54ff8bfcd3690cf3cda",
+    "title": "reloj",
+    "photo": "reloj.png",
+    "category": "accesorios",
+    "price": 100,
+    "stock": 300
+  },
+  {
+    "id": "d34a8c77f0aa0e58a04b2842",
+    "title": "buzo",
+    "photo": "buzo.png",
+    "category": "ropa",
+    "price": 100,
+    "stock": 300
+  },
+  {
+    "id": "3af139b53dc44053c908172f",
+    "title": "botines",
+    "photo": "botines.png",
+    "category": "calzado",
+    "price": 100,
+    "stock": 300
+  },
+  {
+    "id": "1de8ae73bffeff365dc8945c",
+    "title": "borcegos",
+    "photo": "borcegos.png",
+    "category": "calzado",
+    "price": 100,
+    "stock": 300
+  },
+  {
+    "id": "e068e3cf9405930deb9cd7ca",
+    "title": "camperon",
+    "photo": "camperon.png",
+    "category": "ropa",
+    "price": 100,
+    "stock": 300
+  },
+  {
+    "id": "d328015ff69e7919b5f49b29",
+    "title": "gorro",
+    "photo": "gorro.png",
+    "category": "accesorios",
+    "price": 100,
+    "stock": 300
+  }
+]
