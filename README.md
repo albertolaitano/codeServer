@@ -18,8 +18,8 @@
 
 - Ruta Raíz ("/"): Esta ruta devuelve un mensaje JSON indicando que la API está lista para su uso. No realiza ninguna operación de lectura o escritura en la base de datos de productos.
 
-- Ruta "/api/products" (GET): Esta ruta permite recuperar todos los productos almacenados en la base de datos o filtrarlos según la categoria. Utiliza el método productManager.read(cat) para obtener los usuarios y los devuelve como respuesta JSON.
+- Ruta "/api/products" (GET): Esta ruta permite recuperar todos los productos almacenados en la base de datos o filtrarlos según la categoria. Utiliza el método productManager.read(cat) para obtener los productos y los devuelve como respuesta JSON.
 
-- Ruta "/api/products/:nid" (GET): Esta ruta permite recuperar la información de un usuario específico según su ID. Utiliza el método usersManager.readOne(nid) para obtener el usuario y lo devuelve como respuesta JSON.
+- Ruta "/api/products/:nid" (GET): Esta ruta permite recuperar la información de un producto específico según su ID. Utiliza el método productManager.readOne(nid) para obtener el producto y lo devuelve como respuesta JSON.
 
-- Para probar el código, puedes iniciar el servidor ejecutando el archivo con Node.js (node server.js) y luego acceder a las rutas especificadas en tu navegador web. Por ejemplo, puedes ingresar a "http://localhost:8080/api/users" para obtener todos los usuarios o a "http://localhost:8080/api/users/1" para obtener el usuario con ID 1.
+- Para probar el código, puedes iniciar el servidor ejecutando el archivo con Node.js (node server.js) y luego acceder a las rutas especificadas en tu navegador web. Por ejemplo, puedes ingresar a "http://localhost:8080/api/products" para obtener todos los productos o a "http://localhost:8080/api/products/a5c066a7efa1866fe7c9cb6e" para obtener el producto con ID a5c066a7efa1866fe7c9cb6e.
