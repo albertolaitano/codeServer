@@ -1,17 +1,20 @@
 import express from "express";
-import usersManager from "./data/fs/UsersManager.fs.js";
+import productManager from "./data/fs/ProductManager.fs.js";
 
+//server
 const server = express();
 const port = 8080;
-const ready = () => console.log("server ready on port " + port);
+const ready = () => console.log("server ready on port" + port);
 
 server.listen(port, ready);
 
+//middleware
 server.use(express.urlencoded({ extended: true }));
 
-server.get("/", async (req, res) => {
+//router
+server.get("/", async (requerimientos, respuesta) => {
   try {
-    return res.status(200).json({
+    return respuesta.status(200).json({
       response: "CODER API",
       success: true,
     });
@@ -24,18 +27,18 @@ server.get("/", async (req, res) => {
   }
 });
 
-server.get("/api/users", async (req, res) => {
+server.get("/api/products", async (req, res) => {
   try {
-    const { role } = req.query;
-    const all = await usersManager.read(role);
-    if (all.length !== 0) {
+    const { category } = req.query;
+    const all = await productManager.read(category);
+    if (all) {
       return res.status(200).json({
         response: all,
-        role,
+        category,
         success: true,
       });
     } else {
-      const error = new Error("NOT FOUND");
+      const error = new Error("Not Found");
       error.statusCode = 404;
       throw error;
     }
@@ -48,10 +51,10 @@ server.get("/api/users", async (req, res) => {
   }
 });
 
-server.get("/api/users/:nid", async (req, res) => {
+server.get("/api/products/:nid", async (req, res) => {
   try {
     const { nid } = req.params;
-    const one = await usersManager.readOne(nid);
+    const one = await productManager.readOne(nid);
     if (one) {
       return res.status(200).json({
         response: one,
