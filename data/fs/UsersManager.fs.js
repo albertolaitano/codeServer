@@ -1,5 +1,5 @@
-const crypto = require("crypto");
-const fs = require("fs");
+import fs from "fs";
+import crypto from "crypto";
 
 class UserManager {
   constructor() {
@@ -44,19 +44,17 @@ class UserManager {
     }
   }
 
-  async read() {
+  async read(rol) {
     try {
-      let users = await fs.promises.readFile(this.path, "utf-8");
-      users = JSON.parse(users);
-
-      if (users.length === 0) {
-        throw new Error("No hay usuarios");
-      } else {
-        console.log("Todos los usuarios: ", users);
-        return users;
+      let all = await fs.promises.readFile(this.path, "utf-8");
+      all = JSON.parse(all);
+      if (rol) {
+        all = all.filter((each) => each.role === rol);
       }
+      return all;
     } catch (error) {
       console.log(error);
+      return error;
     }
   }
 
@@ -104,27 +102,28 @@ async function test() {
       photo: "photo1.png",
       email: "toto@gmail.com",
       password: "toto1234",
-      role: "Alumno",
+      role: "profesor",
     });
 
     await gestorDeUsuarios.create({
       photo: "photo2.png",
       email: "pepe@gmail.com",
       password: "pepe1234",
-      role: "Alumno",
+      role: "alumno",
     });
 
     await gestorDeUsuarios.create({
-      email: "jose@gmail.com",
-      password: "jose1234",
-      role: "Alumno",
+      photo: "photo3.png",
+      email: "raul@gmail.com",
+      password: "raul1234",
+      role: "alumno",
     });
 
     await gestorDeUsuarios.create({
       photo: "photo4.png",
-      email: "raul@gmail.com",
-      password: "raul1234",
-      role: "Alumno",
+      email: "luis@gmail.com",
+      password: "luis1234",
+      role: "alumno",
     });
 
     await gestorDeUsuarios.read();
@@ -132,8 +131,9 @@ async function test() {
       photo: "photo.5.png",
       email: "pedro@gmail.com",
       password: "pedro1234",
-      role: "Alumno",
+      role: "alumno",
     });
+
     console.log("Usuario nuevo creado ", tester);
     await gestorDeUsuarios.readOne(tester.id);
     await gestorDeUsuarios.destroy(tester.id);
@@ -142,4 +142,7 @@ async function test() {
   }
 }
 
-test();
+//test();
+
+const usersManager = new UserManager();
+export default usersManager;
