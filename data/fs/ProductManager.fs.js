@@ -1,5 +1,5 @@
-const crypto = require("crypto");
-const fs = require("fs");
+import crypto from "crypto";
+import fs from "fs";
 
 class ProductManager {
   constructor() {
@@ -53,19 +53,17 @@ class ProductManager {
     }
   }
 
-  async read() {
+  async read(cat) {
     try {
-      let Products = await fs.promises.readFile(this.path, "utf-8");
-      Products = JSON.parse(Products);
-
-      if (Products.length === 0) {
-        throw new Error("No hay productos disponibles");
-      } else {
-        console.log("Error al leer productos: ", Products);
-        return Products;
+      let all = await fs.promises.readFile(this.path, "utf-8");
+      all = JSON.parse(all);
+      if (cat) {
+        all = all.filter((each) => each.category === cat);
       }
+      return all;
     } catch (error) {
       console.log(error);
+      return error;
     }
   }
 
@@ -106,103 +104,5 @@ class ProductManager {
   }
 }
 
-async function test() {
-  try {
-    const gestorDeProductos = new ProductManager();
-    await gestorDeProductos.create({
-      title: "remera",
-      photo: "remera.png",
-      category: "ropa",
-      price: 80,
-      stock: 1000,
-    });
-
-    await gestorDeProductos.create({
-      title: "pantalón",
-      photo: "pantalon.png",
-      category: "ropa",
-      price: 120,
-      stock: 800,
-    });
-
-    await gestorDeProductos.create({
-      title: "zapatos",
-      photo: "zapatos.png",
-      category: "calzado",
-      price: 150,
-      stock: 500,
-    });
-
-    await gestorDeProductos.create({
-      title: "gorra",
-      photo: "gorra.png",
-      category: "accesorios",
-      price: 20,
-      stock: 200,
-    });
-
-    await gestorDeProductos.create({
-      title: "reloj",
-      photo: "reloj.png",
-      category: "accesorios",
-      price: 100,
-      stock: 300,
-    });
-
-    await gestorDeProductos.create({
-      title: "buzo",
-      photo: "buzo.png",
-      category: "ropa",
-      price: 100,
-      stock: 300,
-    });
-
-    await gestorDeProductos.create({
-      title: "botines",
-      photo: "botines.png",
-      category: "calzado",
-      price: 100,
-      stock: 300,
-    });
-
-    await gestorDeProductos.create({
-      title: "borcegos",
-      photo: "borcegos.png",
-      category: "calzado",
-      price: 100,
-      stock: 300,
-    });
-
-    await gestorDeProductos.create({
-      title: "camperon",
-      photo: "camperon.png",
-      category: "ropa",
-      price: 100,
-      stock: 300,
-    });
-
-    await gestorDeProductos.create({
-      title: "gorro",
-      photo: "gorro.png",
-      category: "accesorios",
-      price: 100,
-      stock: 300,
-    });
-
-    await gestorDeProductos.read();
-    const tester = await gestorDeProductos.create({
-      title: "gorroXXL",
-      photo: "gorroXXL.png",
-      category: "accesorios",
-      price: 100,
-      stock: 300,
-    });
-
-    console.log("producto nuevo creado ", tester);
-    await gestorDeProductos.readOne(tester.id);
-    await gestorDeProductos.destroy(tester.id);
-  } catch (error) {
-    console.log(error);
-  }
-}
-test();
+const productManager = new ProductManager();
+export default productManager;
