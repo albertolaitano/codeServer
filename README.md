@@ -1,49 +1,12 @@
-# README SPRINT2
+# README SPRINT3
 
-## Gestor de Usuarios - Node.js
 
-Este proyecto implementa un gestor de usuarios utilizando Node.js. Permite crear, leer, leer uno y eliminar usuarios desde y hacia un archivo JSON.
+- Este código es un servidor Express que implementa una API RESTful para gestionar usuarios. Utiliza el puerto 8080 para escuchar las solicitudes entrantes. Cuando el servidor está en funcionamiento, puede manejar solicitudes GET en tres rutas principales:
 
-# Uso
+- Ruta Raíz ("/"): Esta ruta devuelve un mensaje JSON indicando que la API está lista para su uso. No realiza ninguna operación de lectura o escritura en la base de datos de usuarios.
 
-1. Instalación de dependencias: Asegúrate de tener Node.js instalado en tu sistema. Luego, ejecuta npm install para instalar las dependencias necesarias.
+- Ruta "/api/users" (GET): Esta ruta permite recuperar todos los usuarios almacenados en la base de datos o filtrarlos según un rol específico. Utiliza el método usersManager.read(role) para obtener los usuarios y los devuelve como respuesta JSON.
 
-2. Ejecución del programa: Para probar el gestor de usuarios, ejecuta node ./data/fs/UsersManager.fs.js. Esto inicializará el gestor de usuarios y realizará una serie de operaciones de prueba.
+- Ruta "/api/users/:nid" (GET): Esta ruta permite recuperar la información de un usuario específico según su ID. Utiliza el método usersManager.readOne(nid) para obtener el usuario y lo devuelve como respuesta JSON.
 
-## Cómo Probar
-
-1. Ejecuta el programa como se indica en la sección "Ejecución del programa".
-2. Se crearán varios usuarios de prueba.
-3. Se mostrará la lista de todos los usuarios creados.
-4. Se creará un nuevo usuario.
-5. Se leerá el nuevo usuario creado.
-6. Se eliminará el nuevo usuario.
-
-## Notas
-
-- Asegúrate de tener permisos de escritura en el directorio donde se encuentra el archivo users.json.
-- Asegúrate de proporcionar un correo electrónico, contraseña y rol al crear un usuario. Estos campos son obligatorios.
-
-## Gestor de Productos - Node.js
-
-Este proyecto implementa un gestor de productos utilizando Node.js. Permite crear, leer, leer uno y eliminar productos desde y hacia un archivo JSON.
-
-# Uso
-
-1. Instalación de dependencias: Asegúrate de tener Node.js instalado en tu sistema. Luego, ejecuta npm install para instalar las dependencias necesarias.
-
-2. Ejecución del programa: Para probar el gestor de productos, ejecuta node ./data/fs/ProductManager.fs.js. Esto inicializará el gestor de productos y realizará una serie de operaciones de prueba.
-
-## Cómo Probar
-
-1. Ejecuta el programa como se indica en la sección "Ejecución del programa".
-2. Se crearán varios productos de prueba.
-3. Se mostrará la lista de todos los productos creados.
-4. Se creará un nuevo producto.
-5. Se leerá el nuevo producto creado.
-6. Se eliminará el nuevo producto.
-
-## Notas
-
-- Asegúrate de tener permisos de escritura en el directorio donde se encuentra el archivo users.json.
-- Asegúrate de proporcionar un titulo, categoria, precio y stock al crear un producto. Estos campos son obligatorios.
+- Para probar el código, puedes iniciar el servidor ejecutando el archivo con Node.js (node server.js) y luego acceder a las rutas especificadas en tu navegador web. Por ejemplo, puedes ingresar a "http://localhost:8080/api/users" para obtener todos los usuarios o a "http://localhost:8080/api/users/1" para obtener el usuario con ID 1.
